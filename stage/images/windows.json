@@ -1,0 +1,49 @@
+{
+  "variables": {
+    "client_id": "CLIENT_ID",
+    "client_secret": "CLIENT_SECRET",
+    "resource_group": "petshopresourcegroup",
+    "storage_account": "uapsterraformstorage",
+    "subscription_id": "SUBSCRIPTION_ID",
+    "object_id": "OBJECT_ID"
+  },
+
+  "builders": [{
+    "type": "azure-arm",
+
+    "client_id": "{{user `client_id`}}",
+    "client_secret": "{{user `client_secret`}}",
+    "subscription_id": "{{user `subscription_id`}}",
+    "object_id": "{{user `object_id`}}",
+
+    "os_type": "Windows",
+
+    "image_publisher": "MicrosoftWindowsServer",
+    "image_offer": "WindowsServer",
+    "image_sku": "2016-Datacenter",
+
+    "managed_image_resource_group_name" : "petshopresourcegroup",
+    "managed_image_name" : "windows_image",
+
+    "communicator": "winrm",
+    "winrm_use_ssl": "true",
+    "winrm_insecure": "true",
+    "winrm_timeout": "3m",
+    "winrm_username": "packer",
+
+    "location": "West US 2",
+    "vm_size": "Standard_DS2_v2",
+
+    "azure_tags": {
+      "environment" : "staging"
+    }
+  }],
+  "provisioners": [{
+    "type": "powershell",
+    "inline": [
+      "Add-WindowsFeature Web-Server",
+      "if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force}",
+      "& $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /shutdown /quiet"
+    ]
+  }]
+}
