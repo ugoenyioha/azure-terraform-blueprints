@@ -15,6 +15,9 @@ env:
     - GH_USER_EMAIL="ugo.enyioha@usableapps.io"
     - GH_REPO=ugoenyioha/azure-terraform-blueprints
 
+script:
+  - echo "hello build"
+
 #install terraform
 before_deploy:
   - scripts/install_terraform.sh
