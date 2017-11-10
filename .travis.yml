@@ -1,0 +1,29 @@
+dist: trusty
+sudo: false
+language: go
+
+go:
+  - 1.7.x
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - GH_USERNAME="TravisCI"
+    - GH_USER_EMAIL="ugo.enyioha@usableapps.io"
+    - GH_REPO=ugoenyioha/azure-terraform-blueprints
+
+#install terraform
+before_deploy:
+  - scripts/install_terraform.sh
+
+# terraform apply
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: "scripts/deploy.sh"
+    on:
+      repo:
+      branch: master
