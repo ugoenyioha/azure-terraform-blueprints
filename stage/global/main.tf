@@ -1,9 +1,7 @@
-provider "azurerm" {
-}
+provider "azurerm" {}
 
 terraform {
-  backend "azurerm" {
-  }
+  backend "azurerm" {}
 }
 
 resource "azurerm_resource_group" "PetshopResourceGroup" {
