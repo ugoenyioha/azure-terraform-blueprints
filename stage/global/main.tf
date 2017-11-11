@@ -1,8 +1,4 @@
 provider "azurerm" {
-  subscription_id = "SUB"
-  client_id       = "CLI"
-  client_secret   = "SEC"
-  tenant_id       = "TEN"
 }
 
 terraform {
