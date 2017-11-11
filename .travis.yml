@@ -28,7 +28,7 @@ script:
                    -backend-config="container_name=CONTAINER_NAME"  \
                    -backend-config="key=stage.terraform.tfstate" \
                    -backend-config="resource_group_name=RESOURCE_GROUP_NAME" \
-                   -baxkend-config="access_key=ACCESS_KEY"
+                   -backend-config="access_key=ACCESS_KEY"
     terraform plan
 
 # terraform apply
