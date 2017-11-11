@@ -1,9 +1,5 @@
 dist: trusty
 sudo: false
-language: go
-
-go:
-  - 1.7.x
 
 branches:
   only:
@@ -11,16 +7,21 @@ branches:
 
 env:
   global:
+    # This environment variable tells Terraform not to prompt for input. This is
+    # not required, but if we make a mistake, the Travis builder will hang waiting
+    # for user input, tying up unnecessary resources.
+    - TF_INPUT=false
+
     - GH_USERNAME="TravisCI"
     - GH_USER_EMAIL="ugo.enyioha@usableapps.io"
     - GH_REPO=ugoenyioha/azure-terraform-blueprints
 
-script:
-  - echo "hello build"
-
 #install terraform
-before_deploy:
+before_install:
   - scripts/install_terraform.sh
+
+script:
+  - terraform plan
 
 # terraform apply
 deploy:
