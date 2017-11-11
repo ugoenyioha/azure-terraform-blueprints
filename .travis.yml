@@ -43,8 +43,6 @@ script:
                  -backend-config="resource_group_name=${RESOURCE_GROUP_NAME}" \
                  -backend-config="access_key=${STORAGE_ACCESS_KEY}"
 
-  terraform plan
-
 deploy:
 - provider: script
   skip_cleanup: true
