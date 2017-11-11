@@ -1,4 +1,4 @@
-provider "azurerm" {}
+provider "azurerm" { skip_credentials_validation = true }
 
 terraform {
   backend "azurerm" {}
