@@ -41,7 +41,7 @@ script:
                  -backend-config="access_key=${STORAGE_ACCESS_KEY}"
   terraform plan -var 'azure_subscription_id=${AZURE_SUBSCRIPTION_ID}' \
                  -var 'azure_client_id=${AZURE_CLIENT_ID}' \
-                 -var 'azure_client_secret=${AZURE_CLIENT_SECRET}'
+                 -var 'azure_client_secret=${AZURE_CLIENT_SECRET}' \
                  -var 'azure_tenant_id=${AZURE_TENANT_ID}'
 deploy:
 - provider: script
