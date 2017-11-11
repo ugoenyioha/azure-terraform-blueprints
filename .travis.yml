@@ -18,6 +18,7 @@ env:
 
 #install terraform
 before_install:
+  - chmod +x scripts/install_terraform.sh
   - scripts/install_terraform.sh
 
 script:
