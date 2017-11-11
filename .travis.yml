@@ -22,6 +22,7 @@ before_install:
   - scripts/install_terraform.sh
 
 script:
+  - cd stage/global/
   - terraform plan
 
 # terraform apply
