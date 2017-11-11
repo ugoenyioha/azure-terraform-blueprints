@@ -1,17 +1,12 @@
 provider "azurerm" {
-  subscription_id = "SUBSCRIPTION_ID"
-  client_id       = "CLIENT_ID"
-  client_secret   = "CLIENT_SECRET"
-  tenant_id       = "TENANT_ID"
+  subscription_id = "${var.azure_subscription_id}"
+  client_id       = "${var.azure_client_id}"
+  client_secret   = "${var.azure_client_secret}"
+  tenant_id       = "${var.azure_tenant_id}"
 }
 
 terraform {
   backend "azurerm" {
-    storage_account_name="STATE_STORAGE_ACCOUNT"
-    container_name="STATE_STORAGE_CONTAINR"
-    key="stage.terraform.tfstate"
-    resource_group_name="RESOURCE_GROUP"
-    access_key="STORAGE_ACCESS_KEY"
   }
 }
 
