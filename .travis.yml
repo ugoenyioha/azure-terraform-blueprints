@@ -1,41 +1,39 @@
 dist: trusty
 sudo: required
-
 branches:
   only:
-    - master
-
+  - master
 env:
   global:
-    # This environment variable tells Terraform not to prompt for input. This is
-    # not required, but if we make a mistake, the Travis builder will hang waiting
-    # for user input, tying up unnecessary resources.
-    - TF_INPUT=false
+  - TF_INPUT=false
+  - GH_USERNAME="TravisCI"
+  - GH_USER_EMAIL="ugo.enyioha@usableapps.io"
+  - GH_REPO=ugoenyioha/azure-terraform-blueprints
 
-    - GH_USERNAME="TravisCI"
-    - GH_USER_EMAIL="ugo.enyioha@usableapps.io"
-    - GH_REPO=ugoenyioha/azure-terraform-blueprints
+  # azure
+  - STORAGE_ACCOUNT_NAME=uapsterraformstorage
+  - CONTAINER_NAME=ua-ps-terraform-container
+  - KEY=stage.terraform.tfstate
+  - RESOURCE_GROUP_NAME=uapetshopresourcegroup
+  # azure STORAGE_ACCESS_KEY
+  - secure: fl4UQXWyEGsUoTGaWhv2X0Q58un3S+lZG5fAEvFIxtfSHtNVGYQHTaJEmRKTwm5zZTW08bZnBsPz3No8Js533MsSMMgTOSD+3RcGBKPooVc8047/7/gEkjSNLL+MYjUPuR2kLXCAqWDPMuT2SOg5wqy4dDW07e6zleqzrxrTToWSFnQEdUSIKc4KFOad1Ce61pjI2MszXmdpF57OcmKItPt2UWPLGMAsIPL8fvWjZxz1qoBu5W3Bf2/Sy+PGJRwuRwm7t8t4HE2lufQuvXl4Jh+1Gr3LVO4jRlaLu6LYT9rVzFnstGoe/yFAEQeDWzGLDbWYgetPfFKYYyc4A0uflyhYo/4jSgXdcpyQ8XI+WiPxjXV4YCCInOQpmVNtW9WzI1Mu65tj3U2bMFnw0928xK5oPQvBsuMcXOUcT/T8arLGFzykpNd1dJX44dBot9S1ddCqGsDnxcJS/63PzkMQuNSqsdga9kcQ8sx/xpkQctRA8K6znqZihQEC/lgih1lbG1qnaOrLBrN/sjaiBArbKs4TMUBhNxbcZobs1QuB/q25F9hbbln2bRY85kjgkaTy5eblc7EV1N2cIIozmx8ngJcZ2NQI/gmCSe+iS37VUU16RjhAa0LnQ1HZpCJQtpI1ITLOqZJ3sfjsOZ5ct2M8BYQSRvT+2gFHZfFMKnHAXrE=
 
-#install terraform
 before_install:
-  - chmod +x scripts/install_terraform.sh
-  - scripts/install_terraform.sh
-
+- chmod +x scripts/install_terraform.sh
+- scripts/install_terraform.sh
 script:
-  - |
-    cd stage/global/
-    terraform init -backend-config="storage_account_name=STORAGE_ACCOUNT_NAME" \
-                   -backend-config="container_name=CONTAINER_NAME"  \
-                   -backend-config="key=stage.terraform.tfstate" \
-                   -backend-config="resource_group_name=RESOURCE_GROUP_NAME" \
-                   -backend-config="access_key=ACCESS_KEY"
-    terraform plan
-
-# terraform apply
+- |
+  cd stage/global/
+  terraform init -backend-config="storage_account_name=${STORAGE_ACCOUNT_NAME}" \
+                 -backend-config="container_name=${CONTAINER_NAME}"  \
+                 -backend-config="key=${stage.terraform.tfstate}" \
+                 -backend-config="resource_group_name=${RESOURCE_GROUP_NAME}" \
+                 -backend-config="access_key=${STORAGE_ACCESS_KEY}"
+  terraform plan
 deploy:
-  - provider: script
-    skip_cleanup: true
-    script: "scripts/deploy.sh"
-    on:
-      repo:
-      branch: master
+- provider: script
+  skip_cleanup: true
+  script: scripts/deploy.sh
+  on:
+    repo: 
+    branch: master
