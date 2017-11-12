@@ -1,8 +1,8 @@
-resource "azurerm_virtual_network" "petshop-network" {
-  name = "petshop-network"
-  address_space = ["10.0.0.0/16"]
-  location = "West US 2"
-  resource_group_name = "${var.azure_resource_group_name}"
+# resource "azurerm_virtual_network" "petshop-network" {
+#   name = "petshop-network"
+#  address_space = ["10.0.0.0/16"]
+#  location = "West US 2"
+#  resource_group_name = "${var.azure_resource_group_name}"
 
 #  subnet {
 #    name = "loadbalancers"
@@ -19,7 +19,8 @@ resource "azurerm_virtual_network" "petshop-network" {
 #    address_prefix = "10.0.4.0/24"
 #  }
 
-  tags {
-    environment = "staging"
-  }
-}
+#  tags {
+#    environment = "staging"
+#  }
+# }
+
