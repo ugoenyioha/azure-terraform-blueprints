@@ -9,3 +9,8 @@ echo "Deploying Network...."
 pushd stage/network
 terraform apply
 popd
+
+echo "Deploying Services...."
+pushd stage/services/frontend-app/
+terraform apply
+popd
