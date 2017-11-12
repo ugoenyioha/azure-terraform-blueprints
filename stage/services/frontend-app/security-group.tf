@@ -1,7 +1,7 @@
 resource "azurerm_network_security_group" "petstore_subnet_securitygroup" {
   location = "westus2"
   name = "petstore_subnet_sg"
-  resource_group_name = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
 
   security_rule {
     access = "Allow"

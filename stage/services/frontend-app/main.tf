@@ -1,18 +1,18 @@
 provider "azurerm" {
-  subscription_id = "SUBSCRIPTION_ID"
-  client_id       = "CLIENT_ID"
-  client_secret   = "CLIENT_SECRET"
-  tenant_id       = "TENANT_ID"
+  subscription_id 	= "${var.azure_subscription_id}"
+  client_id 		= "${var.azure_client_id}"
+  client_secret 	= "${var.azure_client_secret}"
+  tenant_id 		= "${var.azure_tenant_id}"
 }
 
-data "terraform_remote_state" "staging" {
+ata "terraform_remote_state" "staging" {
   backend = "azure"
   config {
-    storage_account_name="STATE_STORAGE_ACCOUNT"
-    container_name="STATE_STORAGE_CONTAINR"
-    key="stage.terraform.tfstate"
-    resource_group_name="RESOURCE_GROUP"
-    access_key="STORAGE_ACCESS_KEY"
+    storage_account_name="${var.azure_storage_account_name}"
+    container_name="${var.azure_container_name}"
+    key="${var.azure_state_key}"
+    resource_group_name="${var.azure_resource_group_name}"
+    access_key="${var.azure_storage_access_key}"
   }
 }
 

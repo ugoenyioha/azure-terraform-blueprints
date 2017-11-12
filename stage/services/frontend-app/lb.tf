@@ -93,7 +93,7 @@ resource "azurerm_lb_rule" "load_balancer_http_adminserver_rule" {
 }
 
 resource "azurerm_lb_probe" "ps_loadbalancer_probe" {
-  resource_group_name = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   loadbalancer_id     = "${azurerm_lb.ps_loadbalancer.id}"
   name                = "RDPProbe"
   protocol            = "tcp"
@@ -102,7 +102,7 @@ resource "azurerm_lb_probe" "ps_loadbalancer_probe" {
 
 # inbound nat rules
 resource "azurerm_lb_nat_rule" "rdp_nat" {
-  resource_group_name = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   loadbalancer_id = "${azurerm_lb.ps_loadbalancer.id}"
   name = "RDP-vm-1"
   protocol = "Tcp"
@@ -124,7 +124,7 @@ resource "azurerm_lb_nat_rule" "rdp_nat" {
 resource "azurerm_lb" "ps_loadbalancer" {
   name                = "ps-loadbalancer"
   location            = "West US 2"
-  resource_group_name = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
 
   frontend_ip_configuration {
     name                 = "ps-public-ip"

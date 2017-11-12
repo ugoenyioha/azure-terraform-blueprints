@@ -1,7 +1,7 @@
 resource "azurerm_network_interface" "ps-vm-nic" {
   name                = "petshopni"
   location            = "West US 2"
-  resource_group_name =  "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   network_security_group_id = "${azurerm_network_security_group.petstore_subnet_securitygroup.id}"
 
   ip_configuration {
@@ -21,7 +21,7 @@ resource "azurerm_virtual_machine" "ps_vm" {
   location = "West US 2"
   name = "petshopvm"
   network_interface_ids = ["${azurerm_network_interface.ps-vm-nic.id}"]
-  resource_group_name = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   vm_size = "Standard_DS3_v2_Promo"
   delete_os_disk_on_termination = true
   delete_data_disks_on_termination = true
