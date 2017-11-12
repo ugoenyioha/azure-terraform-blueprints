@@ -21,3 +21,6 @@ variable azure_container_name {}
 variable azure_state_key {}
 variable azure_resource_group_name {}
 variable azure_storage_access_key {}
+
+variable petshop_server_username {}
+variable petshop_server_password {}
