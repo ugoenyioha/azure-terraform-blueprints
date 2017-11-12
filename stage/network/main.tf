@@ -7,5 +7,11 @@ provider "azurerm" {
 
 data "terraform_remote_state" "staging" {
   backend = "azure"
-  config {}
+  config {
+    storage_account_name="${var.azure_storage_account_name}"
+    container_name="${var.azure_container_name}"
+    key="${var.azure_state_key}"
+    resource_group_name="${var.azure_resource_group_name}"
+    access_key="${var.azure_storage_access_key}"
+  }
 }
