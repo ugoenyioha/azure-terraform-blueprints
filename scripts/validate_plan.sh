@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+echo "Validating Base Environment..."
 pushd stage/global/
 terraform init -backend-config="storage_account_name=${STORAGE_ACCOUNT_NAME}" \
              -backend-config="container_name=${CONTAINER_NAME}"  \
@@ -9,6 +10,7 @@ terraform init -backend-config="storage_account_name=${STORAGE_ACCOUNT_NAME}" \
 terraform plan
 popd
 
+echo "Validating Network..."
 pushd stage/network/
 terraform init -backend-config="storage_account_name=${STORAGE_ACCOUNT_NAME}" \
              -backend-config="container_name=${CONTAINER_NAME}"  \
