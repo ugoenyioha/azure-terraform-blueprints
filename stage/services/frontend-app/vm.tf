@@ -35,6 +35,7 @@ resource "azurerm_virtual_machine" "ps_vm" {
     name = "new_windows"
     caching = "ReadWrite"
     managed_disk_type = "Standard_LRS"
+
   }
 
   os_profile {
