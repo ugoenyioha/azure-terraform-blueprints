@@ -6,6 +6,7 @@ branches:
 env:
   global:
   - TF_INPUT=false
+  - TF_IN_AUTOMATION=1
   - GH_USERNAME="TravisCI"
   - GH_USER_EMAIL="ugo.enyioha@usableapps.io"
   - GH_REPO=ugoenyioha/azure-terraform-blueprints
