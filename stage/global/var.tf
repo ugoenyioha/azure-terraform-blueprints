@@ -13,18 +13,18 @@ variable "azure_region" {
   default = "westus2"
 }
 
-variable "subscription_id" {
+variable "azure_subscription_id" {
   description = "Enter Subscription ID for provisioning resources in Azure"
 }
 
-variable "client_id" {
+variable "azure_client_id" {
   description = "Enter Client ID for Application created in Azure AD"
 }
 
-variable "client_secret" {
+variable "azure_client_secret" {
   description = "Enter Client secret for Application in Azure AD"
 }
 
-variable "tenant_id" {
+variable "azure_tenant_id" {
   description = "Enter Tenant ID / Directory ID of your Azure AD. Run Get-AzureSubscription to know your Tenant ID"
 }
