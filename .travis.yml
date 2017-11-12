@@ -37,6 +37,7 @@ env:
   - TF_VAR_azure_container_name=$CONTAINER_NAME
   - TF_VAR_azure_state_key=$STATE_KEY
   - TF_VAR_azure_resource_group_name=$RESOURCE_GROUP_NAME
+  - TF_VAR_azure_storage_access_key=$AZURE_STORAGE_ACCESS_KEY
 
 
 before_install:
