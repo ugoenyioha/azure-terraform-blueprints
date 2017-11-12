@@ -12,10 +12,10 @@ env:
   - GH_REPO=ugoenyioha/azure-terraform-blueprints
 
   # azure
-  - STORAGE_ACCOUNT_NAME=uapsterraformstorage
+  - STORAGE_ACCOUNT_NAME=psterraformstorage
   - CONTAINER_NAME=ua-ps-terraform-container
   - STATE_KEY=stage.terraform.tfstate
-  - RESOURCE_GROUP_NAME=uapetshopresourcegroup
+  - RESOURCE_GROUP_NAME=petshopresourcegroup
 
   # AZURE_STORAGE_ACCESS_KEY
   - secure: "SztPBTEvkF0+9pEISjejFEghEzCil/jv/ni9d4J4P3P3GYjduC1mE+r6R+nwSRZVqVwXm2VQQVX7tgI7pfSkmCpprsLi4Meqtrctm7O1abo94UGh0l+9fl4yKKmJPrH1iV0ui/lwPlb2WNMRzC8RfnE+D0aMVXYtWLjFzGVp1VATwAoQS2bFmc3wQxd+PtlByfPoXYbYcsdeLIBEP92Mafdf2V01wgP2An43WMs7Lh87jX46/eRMZ+C1y00sndhG4AOpsDZGNx9a7vj1FmuALU+S708bzoSSFNaj0Yq0jVglquaswS2Ck5Ky3eOJUyGX2nwZfqRRgQvlmkJndkCCMGx5mYvziU1ozZiVGoo4vqvg3g5kw/v6hhGvmsHImHShSQDmvoyWyKlqB0jVDMXPWkoZjxMqfZpyZ+5qwgPks1Eqq/2oUGuhEaZ7e6tFx2QTq4a6AFjwHymvlOKM9atr9i8HtcnIOfB8/ds4/9VwCuQQEb8XckuuSTzLkBJ5CShdZJP1Zc6zxfCJfqXslIWlYBs6CZ84O4gHsSe4wXzoRtmatj6Tr9ISXpIEWP8zrD6muhwqAIuPPwC6kNQ5I2IG+gHVg9HAuAi+4sZAJLS4ix35E6TSlHhnx//b6hQo/3BSAlGPZ8sejhBun+4x3WYncsG2Wnyepj82vrdw85K9FsI="
