@@ -44,16 +44,16 @@ before_install:
 - chmod +x scripts/install_dependencies.sh
 - chmod +x scripts/validate_plan.sh
 - chmod +x scripts/deploy.sh
-- scripts/install_dependencies.sh
+- make install
 
 script:
-- scripts/validate_plan.sh
+- make validate
 
 
 deploy:
 - provider: script
   skip_cleanup: true
-  script: scripts/deploy.sh
+  script: make deploy
   on:
     repo: 
     branch: master
