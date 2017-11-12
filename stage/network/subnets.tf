@@ -2,7 +2,7 @@ resource "azurerm_virtual_network" "petshop-network" {
   name = "petshop-network"
   address_space = ["10.0.0.0/16"]
   location = "West US 2"
-  resource_group_name = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name = "${var.azure_resource_group_name}"
 
 #  subnet {
 #    name = "loadbalancers"
