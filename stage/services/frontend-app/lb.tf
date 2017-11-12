@@ -15,7 +15,7 @@
 resource "azurerm_subnet" "frontend-webservers" {
   address_prefix = "10.0.2.0/24"
   name = "frontend-webserver"
-  resource_group_name = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   virtual_network_name = "petshop-network"
 }
 
@@ -23,7 +23,7 @@ resource "azurerm_subnet" "frontend-webservers" {
 resource "azurerm_public_ip" "ps_loadbalancer_public_ip" {
   name                         = "ps-public-ip"
   location                     = "West US 2"
-  resource_group_name          = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   public_ip_address_allocation = "dynamic"
   domain_name_label = "petshop"
 
@@ -36,12 +36,12 @@ resource "azurerm_public_ip" "ps_loadbalancer_public_ip" {
 resource "azurerm_lb_backend_address_pool" "ps_backendpool" {
   loadbalancer_id = "${azurerm_lb.ps_loadbalancer.id}"
   name = "ps_backend_pool"
-  resource_group_name = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
 }
 
 # a collection of load balancing rules - note the odd way that lb_rule refers to the frontend ip
 resource "azurerm_lb_rule" "load_balancer_http_apiserver_rule" {
-  resource_group_name            = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   loadbalancer_id                = "${azurerm_lb.ps_loadbalancer.id}"
   name                           = "HTTPApiServerRule"
   protocol                       = "Tcp"
@@ -54,7 +54,7 @@ resource "azurerm_lb_rule" "load_balancer_http_apiserver_rule" {
 }
 
 resource "azurerm_lb_rule" "load_balancer_http_configserver_rule" {
-  resource_group_name            = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   loadbalancer_id                = "${azurerm_lb.ps_loadbalancer.id}"
   name                           = "HTTPConfigServerRule"
   protocol                       = "Tcp"
@@ -67,7 +67,7 @@ resource "azurerm_lb_rule" "load_balancer_http_configserver_rule" {
 }
 
 resource "azurerm_lb_rule" "load_balancer_http_discoveryserver_rule" {
-  resource_group_name            = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   loadbalancer_id                = "${azurerm_lb.ps_loadbalancer.id}"
   name                           = "HTTPDiscoveryServerRule"
   protocol                       = "Tcp"
@@ -80,7 +80,7 @@ resource "azurerm_lb_rule" "load_balancer_http_discoveryserver_rule" {
 }
 
 resource "azurerm_lb_rule" "load_balancer_http_adminserver_rule" {
-  resource_group_name            = "${data.terraform_remote_state.staging.petshopResourceGroupName}"
+  resource_group_name="${var.azure_resource_group_name}"
   loadbalancer_id                = "${azurerm_lb.ps_loadbalancer.id}"
   name                           = "HTTPAdminServerRule"
   protocol                       = "Tcp"

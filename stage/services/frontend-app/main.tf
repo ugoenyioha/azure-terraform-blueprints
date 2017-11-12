@@ -5,7 +5,7 @@ provider "azurerm" {
   tenant_id 		= "${var.azure_tenant_id}"
 }
 
-ata "terraform_remote_state" "staging" {
+data "terraform_remote_state" "staging" {
   backend = "azure"
   config {
     storage_account_name="${var.azure_storage_account_name}"
