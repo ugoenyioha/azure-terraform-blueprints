@@ -35,7 +35,8 @@ env:
 
 before_install:
 - chmod +x scripts/install_dependencies.sh
-- scripts/install_dependencies.sh
+- scripts/install_dependencies.
+
 script:
 - |
   cd stage/global/
@@ -44,8 +45,6 @@ script:
                  -backend-config="key=${STATE_KEY}" \
                  -backend-config="resource_group_name=${RESOURCE_GROUP_NAME}" \
                  -backend-config="access_key=${STORAGE_ACCESS_KEY}"
-  # terraform azurerm provider cannot log in on its own steam so we help it along
-  az login --service-principal --u ${AZURE_CLIENT_ID} -p ${AZURE_CLIENT_SECRET} --tenant ${AZURE_TENANT_ID}
   terraform plan
 
 deploy:
