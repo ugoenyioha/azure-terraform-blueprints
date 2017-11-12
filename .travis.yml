@@ -12,7 +12,7 @@ env:
   - GH_REPO=ugoenyioha/azure-terraform-blueprints
 
   # azure
-  - AZURE_STORAGE_ACCOUNT_NAME=psterraformstorage
+  - AZURE_STORAGE_ACCOUNT_NAME=uapsterraformstorage
   - AZURE_CONTAINER_NAME=ua-ps-terraform-container
   - AZURE_STATE_KEY=stage.terraform.tfstate
   - AZURE_RESOURCE_GROUP_NAME=petshopresourcegroup
