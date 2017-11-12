@@ -27,8 +27,8 @@ How to use
         - The VM is built via with packer
     
 ## Todo
-    - Better parametization
-    - Deployment pipeline
+    - ~~Better parametization~~
+    - ~~Deployment pipeline~~
     - Better start-up automation
     - Bastion Host
     - Change to Petshop Linux Microservices built via packcer
