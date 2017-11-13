@@ -30,11 +30,3 @@ data "terraform_remote_state" "staging_network" {
     access_key="${var.azure_storage_access_key}"
   }
 }
-
-resource "azurerm_container_registry" "PetclinicContainerRegistry" {
-  name                = "petclinic"
-  resource_group_name = "${var.azure_resource_group_name}"
-  location            = "westus2"
-  admin_enabled       = true
-  sku                 = "Standard"
-}

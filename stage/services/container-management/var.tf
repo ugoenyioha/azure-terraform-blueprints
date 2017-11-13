@@ -22,3 +22,5 @@ variable azure_staging_network_state_key {}
 variable azure_resource_group_name {}
 variable azure_storage_access_key {}
 variable azure_staging_registry_state_key {}
+variable azure_kube_ssh_pubkey {}
+variable azure_kube_username {}
