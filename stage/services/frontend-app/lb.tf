@@ -17,9 +17,6 @@ resource "azurerm_subnet" "frontend-webservers" {
   name = "frontend-webserver"
   resource_group_name="${var.azure_resource_group_name}"
   virtual_network_name = "petshop-network"
-  tags {
-    environment = "staging"
-  }
 }
 
 # frontend ip

@@ -18,8 +18,5 @@ resource "azurerm_virtual_network" "petshop-network" {
 #    name = "databases"
 #    address_prefix = "10.0.4.0/24"
 #  }
-  tags {
-    environment = "staging"
-  }
 }
 
