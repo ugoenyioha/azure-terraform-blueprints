@@ -10,7 +10,7 @@ terraform {
 }
 
 resource "azurerm_storage_container" "PetclinicContainerRegisteryStorage" {
-  name                  = "PetclinicRegistryStorage"
+  name                  = "petclinicregistrystorage"
   resource_group_name   = "${var.azure_resource_group_name}"
   storage_account_name  = "${var.azure_storage_account_name}"
   container_access_type = "private"
