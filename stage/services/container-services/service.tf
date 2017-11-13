@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "petcliniccluster" {
   }
 }
 
-resource "azurerm_container_service" "test" {
+resource "azurerm_container_service" "petcliniccontainerservice" {
   name                   = "petcliniccluster"
   location               = "westus2"
   resource_group_name = "petcliniccluster"
