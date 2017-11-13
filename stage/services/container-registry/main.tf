@@ -9,13 +9,6 @@ terraform {
   backend "azurerm" {}
 }
 
-resource "azurerm_storage_container" "PetclinicContainerRegisteryStorage" {
-  name                  = "petclinicregistrystorage"
-  resource_group_name   = "${var.azure_resource_group_name}"
-  storage_account_name  = "${var.azure_storage_account_name}"
-  container_access_type = "private"
-}
-
 data "terraform_remote_state" "staging_global" {
   backend = "azure"
   config {
