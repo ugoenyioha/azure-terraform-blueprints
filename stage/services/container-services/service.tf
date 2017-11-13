@@ -1,10 +1,6 @@
 resource "azurerm_resource_group" "petcliniccluster" {
   location = "westus2"
   name = "petcliniccluster"
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "azurerm_container_service" "petcliniccontainerservice" {
