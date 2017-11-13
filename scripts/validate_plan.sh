@@ -32,7 +32,7 @@ terraform init  -backend-config="storage_account_name=$AZURE_STORAGE_ACCOUNT_NAM
 terraform plan
 popd
 
-echo "Validating Services..."
+echo "Validating Container Registry..."
 pushd stage/services/container-registry/
 terraform init  -backend-config="storage_account_name=$AZURE_STORAGE_ACCOUNT_NAME" \
                 -backend-config="container_name=$AZURE_CONTAINER_NAME"  \

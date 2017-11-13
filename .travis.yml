@@ -42,10 +42,12 @@ env:
 
   - TF_VAR_azure_storage_account_name=$AZURE_STORAGE_ACCOUNT_NAME
   - TF_VAR_azure_container_name=$AZURE_CONTAINER_NAME
+
   - TF_VAR_azure_staging_global_state_key=$AZURE_STAGE_GLOBAL_STATE_KEY
   - TF_VAR_azure_staging_network_state_key=$AZURE_STAGE_NETWORK_STATE_KEY
   - TF_VAR_azure_staging_apps_state_key=$AZURE_STAGE_APPS_STATE_KEY
   - TF_VAR_azure_staging_registry_state_key=$AZURE_STAGE_REGISTRY_STATE_KEY
+
   - TF_VAR_azure_resource_group_name=$AZURE_RESOURCE_GROUP_NAME
   - TF_VAR_azure_storage_access_key=$AZURE_STORAGE_ACCESS_KEY
   - TF_VAR_azure_petshop_server_username=$AZURE_SERVER_USERNAME
