@@ -45,5 +45,5 @@ resource "azurerm_container_registry" "PetclinicContainerRegistry" {
   admin_enabled       = true
   sku                 = "Standard"
 
-  storage_account_id = "${data.terraform_remote_state.staging_global.storage_account_id}"
+  storage_account_id = "${data.terraform_remote_state.staging_global.petshopStorageAccountId}"
 }
