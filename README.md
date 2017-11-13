@@ -1,4 +1,4 @@
-# Terraform Blueprints for Azure [![Build Status](https://travis-ci.org/ugoenyioha/azure-terraform-blueprints.svg?branch=master)](https://travis-ci.org/ugoenyioha/azure-terraform-blueprints.svg?branch=master)
+# Terraform Blueprints for Azure [![Build Status](https://travis-ci.org/ugoenyioha/azure-terraform-blueprints.svg?branch=master)](https://travis-ci.org/ugoenyioha/azure-terraform-blueprints)
 
 How to use
 
