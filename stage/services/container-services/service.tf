@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "petcliniccluster" {
 }
 
 resource "azurerm_container_service" "petcliniccontainerservice" {
-  name                   = "petcliniccluster"
+  name                   = "petcliniccontainerservice"
   location               = "westus2"
   resource_group_name = "petcliniccluster"
   orchestration_platform = "Kubernetes"
@@ -28,8 +28,8 @@ resource "azurerm_container_service" "petcliniccontainerservice" {
 
   agent_pool_profile {
     name       = "default"
-    count      = 3
-    dns_prefix = "acctestagent1"
+    count      = 1
+    dns_prefix = "petclinicagent"
     vm_size    = "Standard DS2 v2"
   }
 
