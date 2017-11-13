@@ -15,7 +15,7 @@ resource "azurerm_container_service" "test" {
 
   master_profile {
     count      = 1
-    dns_prefix = "acctestmaster1"
+    dns_prefix = "petclinickubemaster"
   }
 
   linux_profile {
