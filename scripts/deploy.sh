@@ -16,3 +16,8 @@ echo "Deploying Services...."
 pushd stage/services/frontend-app/
 terraform apply
 popd
+
+echo "Deploying Container Registry...."
+pushd stage/services/container-registry/
+terraform apply
+popd

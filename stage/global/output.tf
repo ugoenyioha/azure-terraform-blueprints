@@ -19,3 +19,7 @@ output "environment_tag" {
 output "azure_region" {
   value = "${var.azure_region}"
 }
+
+output "storage_account_id" {
+  value = "${azurerm_storage_account.PetshopStorage.id}"
+}
