@@ -9,16 +9,15 @@ resource "azurerm_virtual_network" "petshop-network" {
 #    address_prefix= "10.0.1.0/24"
 #  }
 
-  subnet {
-    name = "backend-servers"
-    address_prefix= "10.0.3.0/24"
-  }
+#  subnet {
+#    name = "backend-servers"
+#    address_prefix= "10.0.3.0/24"
+#  }
 
 #  subnet {
 #    name = "databases"
 #    address_prefix = "10.0.4.0/24"
 #  }
-
   tags {
     environment = "staging"
   }
