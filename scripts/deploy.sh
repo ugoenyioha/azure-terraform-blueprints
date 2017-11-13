@@ -18,6 +18,6 @@ terraform apply
 popd
 
 echo "Deploying Container Registry...."
-pushd stage/services/container-registry/
+pushd stage/services/container-services/
 terraform apply
 popd
