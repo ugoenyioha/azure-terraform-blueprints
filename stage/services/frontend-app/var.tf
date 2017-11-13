@@ -18,9 +18,10 @@ variable "azure_tenant_id" {
 
 variable azure_storage_account_name {}
 variable azure_container_name {}
-variable azure_state_key {}
+variable azure_staging_global_state_key {}
+variable azure_staging_network_state_key {}
 variable azure_resource_group_name {}
 variable azure_storage_access_key {}
 
-variable petshop_server_username {}
-variable petshop_server_password {}
+variable azure_petshop_server_username {}
+variable azure_petshop_server_password {}

@@ -16,11 +16,10 @@ resource "azurerm_resource_group" "PetshopResourceGroup" {
   lifecycle {
     prevent_destroy = true
   }
-
 }
 
 resource "azurerm_storage_account" "PetshopStorage" {
-  name = "uapsterraformstorage"
+  name = "${var.azure_storage_account_name}"
   location = "${var.azure_region}"
   resource_group_name = "${var.azure_resource_group_name}"
   account_tier = "Standard"
@@ -40,7 +39,7 @@ resource "azurerm_storage_account" "PetshopStorage" {
 }
 
 resource "azurerm_storage_container" "PetshopStorageContainer" {
-  name                  = "ua-ps-terraform-container"
+  name                  = "${var.azure_container_name}"
   resource_group_name   = "${var.azure_resource_group_name}"
   storage_account_name  = "${azurerm_storage_account.PetshopStorage.name}"
   container_access_type = "private"

@@ -40,8 +40,8 @@ resource "azurerm_virtual_machine" "ps_vm" {
 
   os_profile {
     computer_name  = "petshop"
-    admin_username = "${var.petshop_server_username}"
-    admin_password = "${var.petshop_server_password}"
+    admin_username = "${var.azure_petshop_server_username}"
+    admin_password = "${var.azure_petshop_server_password}"
   }
 
   os_profile_windows_config {
