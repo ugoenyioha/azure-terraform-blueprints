@@ -1,7 +1,7 @@
 resource "azurerm_container_service" "test" {
   name                   = "petcliniccluster"
   location               = "westus2"
-  resource_group_name = "${var.azure_resource_group_name}"
+  resource_group_name = "petcliniccluster"
   orchestration_platform = "Kubernetes"
 
   master_profile {
