@@ -32,7 +32,7 @@ resource "azurerm_virtual_machine" "ps_vm" {
 
   storage_os_disk {
     create_option = "FromImage"
-    name = "new_windows"
+    name = "petshop_image"
     caching = "ReadWrite"
     managed_disk_type = "Standard_LRS"
 

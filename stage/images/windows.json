@@ -1,11 +1,11 @@
 {
   "variables": {
-    "client_id": "CLIENT_ID",
-    "client_secret": "CLIENT_SECRET",
-    "resource_group": "petshopresourcegroup",
-    "storage_account": "uapsterraformstorage",
-    "subscription_id": "SUBSCRIPTION_ID",
-    "object_id": "OBJECT_ID"
+    "client_id": "{{env `AZURE_CLIENT_ID`}}",
+    "client_secret": "{{env `AZURE_CLIENT_SECRET`}}",
+    "resource_group": "{{env `AZURE_RESOURCE_GROUP_NAME`}}",
+    "storage_account": "{{env `AZURE_STORAGE_ACCOUNT_NAME`}}",
+    "subscription_id": "{{env `AZURE_SUBSCRIPTION_ID`}}",
+    "object_id": "{{env `AZURE_OBJECT_ID`}}"
   },
 
   "builders": [{
@@ -22,7 +22,7 @@
     "image_offer": "WindowsServer",
     "image_sku": "2016-Datacenter",
 
-    "managed_image_resource_group_name" : "petshopresourcegroup",
+    "managed_image_resource_group_name" : "{{user `resource_group`}}",
     "managed_image_name" : "windows_image",
 
     "communicator": "winrm",
