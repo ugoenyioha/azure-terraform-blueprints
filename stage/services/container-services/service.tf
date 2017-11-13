@@ -10,7 +10,7 @@ resource "azurerm_container_service" "test" {
   }
 
   linux_profile {
-    admin_username = "${var.azure_kube_username}"
+    admin_username = "petshop"
 
     ssh_key {
       key_data = "${var.azure_kube_ssh_pubkey}"
