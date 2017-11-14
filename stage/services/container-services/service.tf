@@ -1,10 +1,6 @@
 resource "azurerm_resource_group" "petcliniccluster" {
   location = "westus2"
   name = "petcliniccluster"
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "azurerm_container_service" "petcliniccontainerservice" {
@@ -25,7 +21,6 @@ resource "azurerm_container_service" "petcliniccontainerservice" {
       key_data = "${var.azure_kube_ssh_pubkey}"
     }
   }
-  g
 
   agent_pool_profile {
     name       = "default"
