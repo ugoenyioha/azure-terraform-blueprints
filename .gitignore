@@ -10,3 +10,4 @@
 
 # no idea temp files
 **/.idea/*
+/stage/images/variables.json

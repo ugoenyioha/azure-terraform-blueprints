@@ -20,6 +20,6 @@ output "azure_region" {
   value = "${var.azure_region}"
 }
 
-output "petshopStorageAccountId" {
+output "storage_account_id" {
   value = "${azurerm_storage_account.PetshopStorage.id}"
 }
