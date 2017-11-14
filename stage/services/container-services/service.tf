@@ -24,7 +24,7 @@ resource "azurerm_container_service" "petcliniccontainerservice" {
 
   agent_pool_profile {
     name       = "default"
-    count      = 3
+    count      = 1
     dns_prefix = "acctestagent1"
     vm_size    = "Standard_A0"
   }
