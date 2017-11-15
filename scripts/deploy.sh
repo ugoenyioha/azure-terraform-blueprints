@@ -17,7 +17,7 @@ pushd stage/services/frontend-app/
 terraform apply
 popd
 
-echo "Deploying Container Registry...."
+echo "Deploying Container Registry and Kubernetes Cluster...."
 pushd stage/services/container-services/
 terraform apply
 popd
